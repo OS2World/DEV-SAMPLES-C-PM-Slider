@@ -12,7 +12,7 @@
     #define MSGID   USHORT              // OS/2 1.3
     #include <fclsldp.h>                // CUA Library/2
     #define WC_SLIDER CCL_SLIDER        // Window class
-#endif                               
+#endif
 
 //  Defines for dialogs, controls
 
@@ -23,6 +23,13 @@
 #define IDSL_PROGRESS_BAR           201
 
 #define ID_TIMER                      1 // For WinStartTimer
+
+#ifndef max
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+#ifndef min
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
 
 //  Prototypes for useful functions
 

@@ -1,27 +1,27 @@
 // slider.c -- Sample program to demonstrate slider
-
 //--------------------------------------------------------------
 //  slider.c
 //
-//      Sample program to demonstrate sliders.  
+//      Sample program to demonstrate sliders.
 //
 //  By: Guy Scharf                      (415) 948-9186
 //      Software Architects, Inc.       FAX: (415) 948-1620
-//      2163 Jardin Drive               
-//      Mountain View, CA   94040       
+//      2163 Jardin Drive
+//      Mountain View, CA   94040
 //      CompuServe: 76702,557
 //      Internet: 76702.557@compuserve.com
-//  (c) Copyright 1992 Software Architects, Inc.  
+//  (c) Copyright 1992 Software Architects, Inc.
 //
 //      All Rights Reserved.
 //
-//  Software Architects, Inc. develops software products for 
-//  independent software vendors using OS/2 and Presentation 
+//  Software Architects, Inc. develops software products for
+//  independent software vendors using OS/2 and Presentation
 //  Manager.
 //--------------------------------------------------------------
 
 #define INCL_PM                         // Basic OS/2 PM
 #define INCL_BASE                       // components
+
 #include <OS2.H>
 
 #include <stdlib.h>                     // C runtime library
@@ -37,9 +37,9 @@ static MRESULT EXPENTRY ProgressDlgProc (HWND, MSGID, MPARAM,
                                          MPARAM);
 
 //--------------------------------------------------------------
-//                                                                          
+//
 //  Main program to drive slider example
-//                                                                          
+//
 //--------------------------------------------------------------
 
 int main (void)
@@ -72,9 +72,9 @@ int main (void)
 }
 
 //--------------------------------------------------------------
-//                                                                          
+//
 //  GetAmountDlgProc() -- Determine time delay desired
-//                                                                          
+//
 //--------------------------------------------------------------
 
 static MRESULT EXPENTRY GetAmountDlgProc (
@@ -103,7 +103,7 @@ MPARAM  mp2)
                         1,  4,
                         10, 8,
                         30, 30,
-                        "8.Courier");
+                        (PSZ) "8.Courier");
 
             return 0;
 
@@ -139,7 +139,7 @@ MPARAM  mp2)
                     return 0;
             }
             return 0;
-                               
+
         //------------------------------------------------------
         //  All other messages go to default window procedure
         //------------------------------------------------------
@@ -151,11 +151,11 @@ MPARAM  mp2)
 
 
 //--------------------------------------------------------------
-//                                                                          
+//
 //  ProgressDlgProc() -- Show progress bar.  This is a minimal
 //  function dialog.  It just moves the progress bar along
 //  without reflecting any particular activity.
-//                                                                          
+//
 //--------------------------------------------------------------
 
 typedef struct
@@ -194,7 +194,7 @@ MPARAM  mp2)
                                           * TIMERINTERVAL);
 
             //--------------------------------------------------
-            //  Set 2x wide slider, 
+            //  Set 2x wide slider,
             //  No small tick
             //  No large ticks
             //  No detents
@@ -219,7 +219,7 @@ MPARAM  mp2)
         //  When dialog is destroyed, we release any data
         //  we have allocated.  This prevents memory leakage.
         //------------------------------------------------------
-        case WM_DESTROY:                
+        case WM_DESTROY:
             pprog = WinQueryWindowPtr (hwndDlg, QWL_USER);
                                         // Stop the timer
             WinStopTimer (WinQueryAnchorBlock (hwndDlg),
@@ -241,8 +241,8 @@ MPARAM  mp2)
                     return 0;
             }
             return 0;
-                     
-          
+
+
         //------------------------------------------------------
         //  On every timer tick, we computer the percent
         //  complete.  If different than on the last timer
@@ -267,7 +267,7 @@ MPARAM  mp2)
             if (usNewPctDone != pprog->usPctDone)
             {
                 pprog->usPctDone = usNewPctDone;
-                
+
                 WinSendDlgItemMsg (hwndDlg, IDSL_PROGRESS_BAR,
                             SLM_SETSLIDERINFO,
                             MPFROM2SHORT (SMA_SLIDERARMPOSITION,
@@ -293,12 +293,12 @@ MPARAM  mp2)
 }
 
 //--------------------------------------------------------------
-// Function: InitSlider                                         
-// Outputs:  none                                               
-//                                                              
+// Function: InitSlider
+// Outputs:  none
+//
 // This function receives all parameters for configuring a
-// slider.  It sets tick marks, tick text, and detents 
-// according to the input parameters.  The scale text font is 
+// slider.  It sets tick marks, tick text, and detents
+// according to the input parameters.  The scale text font is
 // changed if requested.  This function works only on scale 1.
 //--------------------------------------------------------------
 
@@ -338,7 +338,7 @@ PSZ     pszFont)                        // Font for text or NULL
         usIncrements = sldcd.usScale1Increments;
         usSpacing    = sldcd.usScale1Spacing;
     }
-    
+
     //----------------------------------------------------------
     //  If requested, change dimensions of the slider
     //----------------------------------------------------------
@@ -400,9 +400,7 @@ PSZ     pszFont)                        // Font for text or NULL
     if (usTextSpacing != 0)
     {
         if (pszFont != NULL)
-            WinSetPresParam (hwndSlider,
-                             PP_FONTNAMESIZE,
-                             (strlen(pszFont)+1),
+            WinSetPresParam (hwndSlider, PP_FONTNAMESIZE, (strlen((char *) pszFont)+1),
                              pszFont);
         for (i = 0; i <= usIncrements; i += usTextSpacing)
         {

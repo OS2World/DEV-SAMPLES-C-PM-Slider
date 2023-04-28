@@ -27,7 +27,7 @@ BEGIN
   BEGIN
     CONTROL         "", IDSL_PROGRESS_BAR, 18, 23, 189, 40, 
                     WC_SLIDER, 
-                    SLS_HORIZONTAL | SLS_CENTER | SLS_READONLY
+                    SLS_HORIZONTAL | SLS_CENTER | SLS_READONLY |
                     SLS_RIBBONSTRIP | SLS_HOMELEFT | 
                     SLS_PRIMARYSCALE2 | 
                     WS_GROUP | WS_TABSTOP | WS_VISIBLE
