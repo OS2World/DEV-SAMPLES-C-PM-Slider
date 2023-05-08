@@ -1,5 +1,6 @@
 # DEV-SAMPLE-C-PM-Slider
-Sample program to demonstrate sliders.  
+Sample program to demonstrate sliders.
+The original sample came from the "Advanced PM Programming: Using Sliders" article from OS/2 Monthly Magazine.
 
 LICENSE
 ===============
