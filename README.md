@@ -1,4 +1,4 @@
-# DEV-SAMPLE-PM-Slider
+# DEV-SAMPLE-C-PM-Slider
 Sample program to demonstrate sliders.  
 
 LICENSE
