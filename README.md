@@ -2,6 +2,8 @@
 Sample program to demonstrate sliders.
 The original sample came from the "Advanced PM Programming: Using Sliders" article from OS/2 Monthly Magazine.
 
+![Slider ScreenShot](/wiki/Slider_001.png)
+
 LICENSE
 ===============
 * The 3-Clause BSD License.
@@ -19,3 +21,5 @@ AUTHORS
 LINKS
 ===============
 * 
+
+![Slider ScreenShot](/wiki/Slider_002.png)
